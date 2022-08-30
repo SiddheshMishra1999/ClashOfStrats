@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+<body>
+
+    <%- include('./partials/nav.ejs') %>
+    
+    <div class="Stratgies content">
+        <h2>All Strategies</h2>
+        <% if(strategies.length >0) { %>
+            <% strategies.forEach(strat=>{ %>
+                <a class="single-strat" href="/strategies/<%= strat._id %>">
+                    <h3 class="name"><%= strat.name %></h3>
+                    <p class="army"><%= strat.army %></p>
+                </a>
+            <% }) %>
+        <% }else {%>
+            <p>There are no Strategies to show...</p>
+        <% }%>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+
+    
+</body>
+</html>
+

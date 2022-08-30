@@ -1,0 +1,47 @@
+<html lang="en">
+<%- include("../partials/head.ejs") %>
+
+<body>
+    
+    <%- include("../partials/nav.ejs") %>
+    <div class="details content">
+        <h2><%= strategies.name %></h2>
+        <div class="content">
+            <p><%= strategies.description %> </p>
+        </div>
+        <a class="delete" data-doc="<%= strategies._id %>">Delete Strategy</a>
+
+    </div>
+
+
+    <%- include("../partials/footer.ejs") %>
+
+    <script>
+        const trash = document.querySelector('a.delete');
+
+        trash.addEventListener('click', (e)=>{
+            const endpoint = `/strategies/${trash.dataset.doc}`
+            // Ajax request
+            fetch(endpoint,{
+                method:'DELETE'
+            })
+            // response is the json object sent from the server
+            .then((response)=>
+                // This makes the json object into an actual javascript object we can use
+                response.json()
+            )
+            // We call this javascript object data and use the redirect property 
+            .then((data)=>
+                window.location.href= data.redirect
+            )
+            .catch((err)=>{
+                console.log(err);
+            })
+        })
+    </script>
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,50 @@
+// Mongoose and mongo sandbox routes
+
+// add to database 
+
+app.get('/add-strategy', (req, res)=>{
+    const strategy = new Strategy({
+        name: 'Queen Charge Lalo',
+        army: '5X Healers, 1X Hound, 20X loons',
+        description: 'Charge the most value, lalo the rest'
+    })
+    strategy.save()
+    .then((result)=>{
+        res.send(result)
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+})
+
+
+// retreive from database
+app.get('/all-strategy', (req, res)=>{
+    Strategy.find()
+    .then((result)=>{
+        res.send(result)
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+})
+
+app.get('/single-blog', (req, res)=>{
+    Strategy.findById('630c326ad4fdc7ab54d06241')
+    .then((result)=>{
+        res.send(result)
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+})
+
+
+
+    const strategies = [
+        {name: 'Edrag Spam', army: '8X Edragons, 12X Ballons, 1X Baby Dragon, 3X rage spells, 5X freeze spells',
+            description: 'Hero funnel 1 side, baby dragon funnel the other, edrags in-between'},
+        {name: 'Hydra Spam', army: '7X Dragons, 8X Ballons, 3X Dragon Riders, 3X rage spells, 5X freeze spells',
+            description: '1 Hero funnel each side, hydra in-between'}
+    ]
+    res.render('index', {title: 'Home', strategies})

@@ -1,0 +1,126 @@
+/* Color code: brown #965A2B, redish #A44F30, dark gold #D7A640, beige #EFE1C4 , red #C22F43*/
+:root{
+    --brown: #965A2B;
+    --dark_red: #A44F30;
+    --dark_gold:#D7A640;
+    --beige:#EFE1C4;
+    --light_red: #C22F43;
+}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Silkscreen:wght@400;700&display=swap');
+body{
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    font-family: 'Silkscreen', cursive;
+}
+p, h1, h2, h4, a, ul{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: var(--dark_gold);
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--beige);
+    text-transform: uppercase;
+}
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+nav li{
+    list-style-type: none ;
+    margin-left: 20px;
+}
+
+nav h1{
+    font-size: 3em;
+}
+nav p, nav a{
+    color: var(--dark_red);
+    font-weight: 300;
+}
+
+footer{
+    color: var(--dark_red);
+    text-align: center;
+    margin: 80px auto 20px;
+}
+
+h2{
+    margin-bottom: 40px;
+}
+h3{
+    text-transform: capitalize;
+    margin-bottom: 8px;
+}
+
+.content{
+    margin-left: 20px;
+}
+/* Index styles */
+.Stratgies a{
+    display: block;
+    margin: 40px 0;
+    padding-left: 30px;
+    border-left: 6px solid var(--light_red);
+}
+
+.Stratgies a:hover h3{
+    color: var(--light_red)
+}
+
+/* Army Styles */
+
+.details{
+    position: relative;
+}
+
+.delete{
+    position: absolute;
+    top:0;
+    right: 0;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.delete:hover{
+    cursor: pointer;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* New strategy styles */
+
+.create-strat form{
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.create-strat input,
+.create-strat textarea{
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+}
+.create-strat label{
+    display: block;
+    margin-top: 24px;
+}
+textarea{
+    height: 120px;
+}
+.create-strat button{
+    margin-top: 20px;
+    background: var(--light_red);
+    color: var(--beige);
+    padding: 6 px;
+    border: 0;
+    font-size: 1.2em;
+    cursor: pointer;
+}
